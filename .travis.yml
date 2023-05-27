@@ -4,8 +4,8 @@ node_js:
   - "6"
 branches:
   only:
-  - master
-  - production
+    - master
+    - production
 env:
   global:
     - CXX=g++-4.8
@@ -19,7 +19,7 @@ addons:
     packages:
       - g++-4.8
 before_deploy:
-- npm run preproduction
+  - npm run preproduction
 deploy:
   - provider: s3
     access_key_id: AKIAI7XHSZFYVHFRTRIA
@@ -48,4 +48,4 @@ deploy:
       branch: production
       condition: $UPDATE_STRINGS != true
 after_deploy:
-- node invalidate.js
+  - node invalidate.js
